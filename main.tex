@@ -12,14 +12,49 @@
 \date{2 December 2025}
 \maketitle
 
-\section*{Exercise 1}
-We are asked to replicate Figure 1 from Card and Krueger (1994) using the provided dataset.
+\section*{Exercise 1.1}
+We replicate Figure 1 from Card and Krueger (1994) using the provided data. The variable \texttt{wage\_st} is the state minimum wage, \texttt{time} indicates the survey wave (0: Feb 1992, 1: Nov 1992), and \texttt{state} distinguishes New Jersey (1) from Pennsylvania (0). We bin \texttt{wage\_st} in 0.1 dollar intervals and compute the percentage of stores per bin for each state and wave. The resulting plot shows the distribution of \texttt{wage\_st} by state and wave, with the x-axis as bin averages and the y-axis as store percentages.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Figure1.png}
-    \caption{Replication of Figure 1 from Card and Krueger (1994)}
+    \caption{Distribution of Starting Wage Rates}
     \label{fig:figure1}
 \end{figure}
-\inc
+
+\section*{Exercise 1.2}
+We estimate the following model, following Card and Krueger (1994):
+\begin{equation*}
+    \Delta E_i = \alpha_0 + \boldsymbol{\beta} \mathbf{X}_i + \gamma\, \text{NJ}_i + \epsilon_{i}
+\end{equation*}
+Here, $\Delta E_i$ represents the change in employment (FTE) at store $i$, $\mathbf{X}_i$ includes store characteristics, and $\text{NJ}_i$ is a New Jersey dummy.
+
+We restrict the sample to stores with complete employment and wage data in both waves (351 stores). We calculate FTE as the sum of full-time workers and half the number of part-time workers. For each store, we compute the change in FTE between waves. To check robustness, we run two regressions: (1) using only the state dummy, and (2) adding controls for chain affiliation and co-ownership. We report the coefficient for the state dummy in both models.
+
+We also estimate the model using a difference-in-differences (DiD) approach with the full panel data:
+\begin{equation*}
+    E_{it} = \alpha_0 + \alpha_1\, \text{NJ}_i + \alpha_2\, \text{Post}_t + \gamma\, (\text{NJ}_i \times \text{Post}_t) + \epsilon_{it}
+\end{equation*}
+In this specification, $E_{it}$ is employment at store $i$ in time $t$, $\text{Post}_t$ is a post-treatment time dummy, and the interaction term captures the treatment effect. We calculate the change in employment per store and run the OLS regressions as described above, then compare the results of both approaches.
+
+In total, we estimate four models: two following the original paper and two using the DiD approach. Table \ref{tab:regression_results} reports the NJ dummy coefficient, standard error, and p-value for each model.
+
+\begin{table}
+    \centering
+    \begin{tabular}{lccccc}
+        \hline
+        Model & Variable & Std. Error & p-value \\
+        \hline
+        OLS without controls & NJ & 2.28 & 1.19 & 0.06 \\
+        OLS with controls & NJ&  2.28 & 1.20 & 0.06 \\
+        DiD without controls & NJ:Post & 2.28 & 1.80 & 0.21 \\
+        DiD with controls & NJ:Post & 2.28 & 1.60 & 0.16 \\
+        \hline
+    \end{tabular}
+    \caption{Regression Results for Change in Employment}
+    \label{tab:regression_results}
+\end{table}
+
+
 
 \end{document}
