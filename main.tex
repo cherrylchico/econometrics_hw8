@@ -39,7 +39,7 @@ In this specification, $E_{it}$ is employment at store $i$ in time $t$, $\text{P
 
 In total, we estimate four models: two following the original paper and two using the DiD approach. Table \ref{tab:regression_results} reports the NJ dummy coefficient, standard error, and p-value for each model.
 
-\begin{table}
+\begin{table}[H]
     \centering
     \begin{tabular}{lccccc}
         \hline
@@ -55,6 +55,24 @@ In total, we estimate four models: two following the original paper and two usin
     \label{tab:regression_results}
 \end{table}
 
+
+\section{Exercise 1.3}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lccccc}
+        \hline
+        Model & Variable & Coefficient & Std. Error & p-value \\
+        \hline
+        OLS without controls & NJ & 0.033 & 0.014 & 0.025\\
+        OLS with controls & NJ&  0.037 & 0.014 & 0.009 \\
+        DiD without controls & NJ:Post & 0.033 & 0.036 & 0.368 \\
+        DiD with controls & NJ:Post & 0.033 & 0.019 & 0.094 \\
+        \hline
+    \end{tabular}
+    \caption{Regression Results for Change in Log of Full Meal Price}
+    \label{tab:regression_results}
+\end{table}
 
 
 \end{document}
