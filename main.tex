@@ -29,7 +29,7 @@ We estimate the following model, following Card and Krueger (1994):
 \end{equation*}
 Here, $\Delta E_i$ represents the change in employment (FTE) at store $i$, $\mathbf{X}_i$ includes store characteristics, and $\text{NJ}_i$ is a New Jersey dummy.
 
-We restrict the sample to stores with complete employment and wage data in both waves (351 stores). We calculate FTE as the sum of full-time workers and half the number of part-time workers. For each store, we compute the change in FTE between waves. To check robustness, we run two regressions: (1) using only the state dummy, and (2) adding controls for chain affiliation and co-ownership. We report the coefficient for the state dummy in both models.
+We restrict the sample to stores with complete employment and wage data in both waves (351 stores). We calculate FTE as the sum of full-time workers, half the number of part-time workers, and number of managers. For each store, we compute the change in FTE between waves. To check robustness, we run two regressions: (1) using only the state dummy, and (2) adding controls for chain affiliation and co-ownership. We report the coefficient for the state dummy in both models.
 
 We also estimate the model using a difference-in-differences (DiD) approach with the full panel data:
 \begin{equation*}
@@ -43,7 +43,7 @@ In total, we estimate four models: two following the original paper and two usin
     \centering
     \begin{tabular}{lccccc}
         \hline
-        Model & Variable & Std. Error & p-value \\
+        Model & Variable & Coefficient & Std. Error & p-value \\
         \hline
         OLS without controls & NJ & 2.28 & 1.19 & 0.06 \\
         OLS with controls & NJ&  2.28 & 1.20 & 0.06 \\
