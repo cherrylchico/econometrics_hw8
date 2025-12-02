@@ -1,0 +1,10 @@
+# Ignore auxiliary files generated during compilation
+aux_files/
+
+# Ignore virtual environment directory
+.venv/
+
+#ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+.DS_Store
