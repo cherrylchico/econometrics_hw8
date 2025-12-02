@@ -31,11 +31,7 @@ Submitted by: Cherryl Chico, Mariajosé Argote
 
 3. **Choose the proper kernel**: In Jupyter, select the Python kernel that matches your environment.
 
-4. **Run the analysis**: Execute the cells in order. The notebook includes:
-    - Data loading and preprocessing
-    - Exercise 1: Wage distribution 
-    - Exercise 2.2: Employment impact analysis
-    - Exercise 1.3: Price impact analysis
+4. **Run the analysis**: Execute the cells in order. 
 
 ## Output Files
 
