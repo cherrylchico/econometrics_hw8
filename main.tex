@@ -15,12 +15,14 @@
 \section*{Exercise 1.1}
 We replicate Figure 1 from Card and Krueger (1994) using the provided data. The variable \texttt{wage\_st} is the state minimum wage, \texttt{time} indicates the survey wave (0: Feb 1992, 1: Nov 1992), and \texttt{state} distinguishes New Jersey (1) from Pennsylvania (0). We bin \texttt{wage\_st} in 0.1 dollar intervals and compute the percentage of stores per bin for each state and wave. The resulting plot shows the distribution of \texttt{wage\_st} by state and wave, with the x-axis as bin averages and the y-axis as store percentages.
 
-\begin{figure}[htbp]
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{Figure1.png}
+    \includegraphics[height=0.5\textheight]{Figure1.png}
     \caption{Distribution of Starting Wage Rates}
     \label{fig:figure1}
 \end{figure}
+
+The figure replicates the original findings, showing a shift in New Jersey's wage distribution after the minimum wage increase, while Pennsylvania's distribution remains generally unchanged.
 
 \section*{Exercise 1.2}
 We estimate the following model, following Card and Krueger (1994):
@@ -55,8 +57,9 @@ In total, we estimate four models: two following the original paper and two usin
     \label{tab:regression_results}
 \end{table}
 
-\section*{Exercise 1.3}
+The fact that the point estimate is stable across specifications suggests that the result is not driven by the inclusion of controls or by the particular way we parameterise the model (change scores vs. DiD). What changes is only the precision.
 
+We interpret these results as providing no evidence that the 1992 NJ minimum wage increase reduced employment in fast-food restaurants. If anything, the point estimates point to a small positive effect on FTE employment relative to PA. From a causal inference perspective, under the parallel-trends assumption this is inconsistent with a simple competitive labor market story and more in line with models where firms have some wage-setting power or adjust on other margins rather than cutting jobs.
 
 \section*{Exercise 1.3}
 We examine whether the policy affected full meal prices, following Card and Krueger (1994):
@@ -82,6 +85,12 @@ $P_i$ is the log price of a full meal (soda + fries + entree). We compute the ch
     \caption{Regression Results for Change in Log of Full Meal Price}
     \label{tab:regression_results}
 \end{table}
+
+Because the dependent variable is a change in log prices, $\hat{\gamma}$ can be interpreted as the difference in percentage price changes between NJ and PA. The point estimate of $0.037$ implies that, on average, full-meal prices in New Jersey increased by about $0.033 \text{ to } 0.037$ percent more than in PA over the period.
+
+Under the parallel trends assumption, we interpret $\hat{\gamma}$ as the causal effect of the minimum wage on menu prices. The positive and statistically significant estimate suggests that New Jersey restaurants passed on part of the higher labor costs to consumers in the form of higher prices.
+
+This pattern is consistent with the presence of product market power. If fast-food restaurants faced perfectly competitive product markets, we would expect limited scope to raise prices relative to nearby Pennsylvania competitors without losing demand. Instead, we find that NJ fast food restaurants were able to increase prices modestly but significantly relative to PA. The magnitude of the effect is not huge in levels, but it is also not zero. Considering this and the employment results, it supports the idea that some of the adjustment to the minimum wage increase was transferred through prices, in a setting where firms possess at least some ability to mark up prices above marginal cost.
 
 
 \end{document}
